@@ -22,9 +22,12 @@
 		<directory>bin</directory>
 		<outputDirectory>bin/classes</outputDirectory>
 		<sourceDirectory>src</sourceDirectory>
-		<testSourceDirectory>test</testSourceDirectory>
-
 		<plugins>
+		    <plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration><source>1.6</source><target>1.6</target></configuration>
+			</plugin>
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
