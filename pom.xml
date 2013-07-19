@@ -19,9 +19,10 @@
 	</dependencies>
 
 	<build>
-		<directory>bin</directory>
-		<outputDirectory>bin/classes</outputDirectory>
-		<sourceDirectory>src</sourceDirectory>
+		<sourceDirectory>${basedir}/src</sourceDirectory>
+		<directory>${basedir}/bin</directory>
+		<outputDirectory>${basedir}/bin/classes</outputDirectory>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 		    <plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -31,7 +32,7 @@
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.6.0</version>
 				<extensions>true</extensions>
 				<configuration>
 					<sdk><platform>7</platform></sdk>
