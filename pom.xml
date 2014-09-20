@@ -7,7 +7,7 @@
 	<artifactId>treeview</artifactId>
 	<name>TreeViewList</name>
 	<version>1.0.0</version>
-	<packaging>apklib</packaging>
+	<packaging>aar</packaging>
 
 	<dependencies>
 		<dependency>
@@ -19,7 +19,7 @@
 	</dependencies>
 
 	<build>
-		<sourceDirectory>${basedir}/src</sourceDirectory>
+		<sourceDirectory>${basedir}/src/main/java</sourceDirectory>
 		<directory>${basedir}/bin</directory>
 		<outputDirectory>${basedir}/bin/classes</outputDirectory>
 		<finalName>${project.artifactId}</finalName>
@@ -32,10 +32,12 @@
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
-				<version>3.6.0</version>
+				<version>4.0.0-SNAPSHOT</version>
 				<extensions>true</extensions>
 				<configuration>
 					<sdk><platform>7</platform></sdk>
+                    <androidManifestFile>${basedir}/src/main/AndroidManifest.xml</androidManifestFile>
+                    <resourceDirectory>${basedir}/src/main/res</resourceDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
