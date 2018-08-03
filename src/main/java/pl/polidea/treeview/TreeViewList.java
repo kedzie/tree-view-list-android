@@ -50,13 +50,13 @@ public class TreeViewList extends ListView {
 
     public TreeViewList(final Context context, final AttributeSet attrs,
             final int defStyle) {
-        super(context, attrs, defStyle);
-        parseAttributes(context, attrs);
+        super(context, attrs);
+        parseAttributes(context, attrs, defStyle);
     }
 
-    private void parseAttributes(final Context context, final AttributeSet attrs) {
+    private void parseAttributes(final Context context, final AttributeSet attrs,int   defStyle) {
         final TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.TreeViewList);
+                R.styleable.TreeViewList, 0,defStyle);
         expandedDrawable = a.getDrawable(R.styleable.TreeViewList_src_expanded);
         if (expandedDrawable == null) {
             expandedDrawable = context.getResources().getDrawable(
@@ -68,17 +68,12 @@ public class TreeViewList extends ListView {
             collapsedDrawable = context.getResources().getDrawable(
                     DEFAULT_COLLAPSED_RESOURCE);
         }
-        indentWidth = a.getDimensionPixelSize(
-                R.styleable.TreeViewList_indent_width, DEFAULT_INDENT);
-        indicatorGravity = a.getInteger(
-                R.styleable.TreeViewList_indicator_gravity, DEFAULT_GRAVITY);
-        indicatorBackgroundDrawable = a
-                .getDrawable(R.styleable.TreeViewList_indicator_background);
-        rowBackgroundDrawable = a
-                .getDrawable(R.styleable.TreeViewList_row_background);
+        indentWidth = a.getDimensionPixelSize(R.styleable.TreeViewList_indent_width, DEFAULT_INDENT);
+        indicatorGravity = a.getInteger(R.styleable.TreeViewList_indicator_gravity, DEFAULT_GRAVITY);
+        indicatorBackgroundDrawable = a.getDrawable(R.styleable.TreeViewList_indicator_background);
+        rowBackgroundDrawable = a.getDrawable(R.styleable.TreeViewList_row_background);
         collapsible = a.getBoolean(R.styleable.TreeViewList_collapsible, true);
-        handleTrackballPress = a.getBoolean(
-                R.styleable.TreeViewList_handle_trackball_press, true);
+        handleTrackballPress = a.getBoolean(R.styleable.TreeViewList_handle_trackball_press, true);
     }
 
     @Override
