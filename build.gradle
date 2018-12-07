@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    publishNonDefault true
+
+    compileSdkVersion rootProject.compileSDKInt
+    buildToolsVersion rootProject.buildToolVersionString
+
+    defaultConfig {
+        minSdkVersion rootProject.minSDKInt
+        targetSdkVersion rootProject.targetSDKInt
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            multiDexEnabled true // for unit tests
+        }
+        release {
+            multiDexEnabled true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.JavaVersionInt
+        targetCompatibility rootProject.JavaVersionInt
+    }
+}
+
+
+dependencies {
+    
+}
